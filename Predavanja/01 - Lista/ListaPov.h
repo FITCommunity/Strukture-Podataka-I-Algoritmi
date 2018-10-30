@@ -2,7 +2,7 @@
 #include "Cvor.h"
 
 template <class Tip>
-class ListaPov : public Cvor<Tip>
+class ListaPov
 {
 	int brojElemenata;
 	Cvor<Tip> *prvi;
@@ -11,6 +11,16 @@ public:
 		: brojElemenata(0),
 		  prvi(nullptr)
 	{
+	}
+
+	~ListaPov()
+	{
+		while (prvi)
+		{
+			Cvor<Tip> *temp = prvi;
+			prvi = prvi->link;
+			delete temp;
+		}
 	}
 
 	void DodajPrvi(Tip element)
