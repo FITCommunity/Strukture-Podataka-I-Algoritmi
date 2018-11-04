@@ -13,6 +13,16 @@ public:
 	{
 	}
 
+	~RedPov()
+	{
+		while (pocetak)
+		{
+			Cvor<Tip> *temp = pocetak;
+			pocetak = pocetak->link;
+			delete[] temp;
+		}
+	}
+
 	bool isPrazan() const { return pocetak == nullptr; }
 
 	void Dodaj(const Tip &element)
