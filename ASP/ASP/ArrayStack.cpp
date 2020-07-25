@@ -1,5 +1,7 @@
-#include "ArrayStack.h"
+#include <iostream>
 #include <stdexcept>
+
+#include "ArrayStack.h"
 
 
 template<class T>
@@ -41,7 +43,7 @@ T ArrayStack<T>::Pop()
 {
     if (IsEmpty()) return;
 
-    T removedItem = niz[size - 1];
+    T removedItem = array[size - 1];
     size--;
     return removedItem;
 }
@@ -51,7 +53,7 @@ T ArrayStack<T>::Top() const
 {
     if (IsEmpty()) return;
 
-    return niz[size - 1];
+    return array[size - 1];
 }
 
 template<class T>

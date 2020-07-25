@@ -1,8 +1,10 @@
-#include "ArrayList.h"
+#include <iostream>
 #include <stdexcept>
 
+#include "ArrayList.h"
+
 template<class T>
-ArrayList<T>::ArrayList() : size(0), maxSize(0), array(nullptr)
+ArrayList<T>::ArrayList(int maxSize) : size(0), maxSize(maxSize), array(nullptr)
 {
 }
 
@@ -28,7 +30,7 @@ void ArrayList<T>::ExpandList()
 template<class T>
 void ArrayList<T>::Add(const T& item)
 {
-    if (size == maxSize)
+    if (IsFull())
     {
         ExpandList();
     }
@@ -41,7 +43,7 @@ T ArrayList<T>::Remove()
 {
     if (IsEmpty()) return;
 
-    T removedItem = niz[size - 1];
+    T removedItem = array[size - 1];
     size--;
     return removedItem;
 }
@@ -61,6 +63,12 @@ template<class T>
 bool ArrayList<T>::IsEmpty() const
 {
     return size == 0;
+}
+
+template<class T>
+bool ArrayList<T>::IsFull() const
+{
+    return size == maxSize;
 }
 
 template<class T>

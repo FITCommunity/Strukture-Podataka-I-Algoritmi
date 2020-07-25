@@ -42,7 +42,7 @@ bool LinkedStack<T>::IsEmpty() const
 }
 
 template<class T>
-LinkedStack<T>::~ArrayStack()
+LinkedStack<T>::~LinkedStack()
 {
     while (head)
     {

@@ -1,5 +1,7 @@
-#include "ArrayQueue.h"
+#include <iostream>
 #include <stdexcept>
+
+#include "ArrayQueue.h"
 
 template<class T>
 ArrayQueue<T>::ArrayQueue(int maxSize) : size(0), maxSize(maxSize), first(0), last(0), array(nullptr)
@@ -11,7 +13,7 @@ void ArrayQueue<T>::ExpandQueue()
     try
     {
         T* temp = array;
-        array = new T[2 * maxVelicina];
+        array = new T[2 * maxSize];
 
         for (int j = 0, i = first; j < size; j++, i++)
         {
@@ -35,7 +37,7 @@ void ArrayQueue<T>::ExpandQueue()
 template<class T>
 void ArrayQueue<T>::Add(const T& item)
 {
-    if (size == maxSize)
+    if (IsFull())
     {
         ExpandQueue();
     }
@@ -48,7 +50,9 @@ void ArrayQueue<T>::Add(const T& item)
 template<class T>
 T ArrayQueue<T>::Remove()
 {
-    T removedItem = array[pocetak++];
+    if (IsEmpty()) return;
+
+    T removedItem = array[first++];
     if (first == maxSize) first = 0;
     size--;
 
@@ -71,8 +75,16 @@ bool ArrayQueue<T>::IsEmpty() const
 }
 
 template<class T>
+bool ArrayQueue<T>::IsFull() const
+{
+    return size == maxSize;
+}
+
+template<class T>
 ArrayQueue<T>::~ArrayQueue()
 {
     delete[] array;
     size = 0;
+    first = 0;
+    last = 0;
 }
