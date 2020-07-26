@@ -7,7 +7,7 @@ void MergeSort
 	T* array,
 	int size,
 	std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
-	)
+)
 {
 	MSort(array, 0, size - 1, compare);
 }
@@ -19,7 +19,7 @@ void MSort
 	int beginning,
 	int ending,
 	std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
-	)
+)
 {
 	if (beginning < kraj)
 	{
