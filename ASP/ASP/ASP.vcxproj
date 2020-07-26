@@ -143,13 +143,16 @@
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="HeapPriorityQueue.h" />
+    <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedPriorityQueue.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="LinkedStack.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MergeSort.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
