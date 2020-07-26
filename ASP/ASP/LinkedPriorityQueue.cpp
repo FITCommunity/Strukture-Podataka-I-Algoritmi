@@ -1,0 +1,68 @@
+#include "LinkedPriorityQueue.h"
+
+
+template<class T>
+LinkedPriorityQueue<T>::LinkedPriorityQueue() : head(nullptr)
+{}
+
+
+
+template<class T>
+void LinkedPriorityQueue<T>::Add(const T& item)
+{
+    Node<T>* beginning = head;
+    Node<T>* beforeBeginning = nullptr;
+
+    while (head)
+    {
+        if (beginning->GetData() < item) break;
+
+        beforeBeginning = beginning;
+        beginning = beginning->GetNext();
+    }
+
+    Node<T>* newNode = new Node<T>(item, beginning);
+
+    beforeBeginning ? beforeBeginning->GetNext() = newNode 
+                    : head = newNode;
+}
+
+template<class T>
+T LinkedPriorityQueue<T>::Remove()
+{
+    if (IsEmpty()) return;
+
+    Node<T>* tempNode = head;
+    head = head->GetNext();
+
+    T temp = tempNode->GetData();
+    delete tempNode;
+    return temp;
+}
+
+
+template<class T>
+T LinkedPriorityQueue<T>::Peek() const
+{
+    if (IsEmpty()) return;
+
+    return head->GetData();
+}
+
+template<class T>
+bool LinkedPriorityQueue<T>::IsEmpty() const
+{
+    return head == nullptr;
+}
+
+
+template<class T>
+LinkedPriorityQueue<T>::~LinkedPriorityQueue()
+{
+    while (head)
+    {
+        Node<T>* temp = head;
+        head = head->GetNext();
+        delete temp;
+    }
+}

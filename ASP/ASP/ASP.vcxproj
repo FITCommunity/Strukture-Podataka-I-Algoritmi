@@ -138,6 +138,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="ArrayPriorityQueue.h" />
+    <ClInclude Include="ArrayQueue.h" />
+    <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="HeapPriorityQueue.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="LinkedPriorityQueue.h" />
+    <ClInclude Include="LinkedQueue.h" />
+    <ClInclude Include="LinkedStack.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayList.cpp" />
+    <ClCompile Include="ArrayPriorityQueue.cpp" />
+    <ClCompile Include="ArrayQueue.cpp" />
+    <ClCompile Include="ArrayStack.cpp" />
+    <ClCompile Include="HeapPriorityQueue.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="LinkedPriorityQueue.cpp" />
+    <ClCompile Include="LinkedQueue.cpp" />
+    <ClCompile Include="LinkedStack.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
