@@ -157,15 +157,6 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArrayList.cpp" />
-    <ClCompile Include="ArrayPriorityQueue.cpp" />
-    <ClCompile Include="ArrayQueue.cpp" />
-    <ClCompile Include="ArrayStack.cpp" />
-    <ClCompile Include="HeapPriorityQueue.cpp" />
-    <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="LinkedPriorityQueue.cpp" />
-    <ClCompile Include="LinkedQueue.cpp" />
-    <ClCompile Include="LinkedStack.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
