@@ -34,6 +34,9 @@
     <Filter Include="Header Files\BinaryTree">
       <UniqueIdentifier>{196bcea7-da3a-4f50-a89a-1f6e11fea653}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graph">
+      <UniqueIdentifier>{4462656b-bb60-4bdf-918c-2533bd16fea3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -116,6 +119,18 @@
     </ClInclude>
     <ClInclude Include="BinaryTreeTraversal.h">
       <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjacencyMatrix.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstSearchIterative.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstSearchRecursive.h">
+      <Filter>Header Files\Graph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

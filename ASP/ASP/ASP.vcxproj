@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyMatrix.h" />
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="ArrayPriorityQueue.h" />
     <ClInclude Include="ArrayQueue.h" />
@@ -147,6 +148,9 @@
     <ClInclude Include="BinaryTreeTraversal.h" />
     <ClInclude Include="BucketSort.h" />
     <ClInclude Include="ChainedHashTable.h" />
+    <ClInclude Include="DepthFirstSearchIterative.h" />
+    <ClInclude Include="DepthFirstSearchRecursive.h" />
+    <ClInclude Include="Edge.h" />
     <ClInclude Include="HashNode.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="HeapPriorityQueue.h" />

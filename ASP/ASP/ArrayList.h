@@ -12,7 +12,11 @@ class ArrayList : public List<T>
 
     void ExpandList();
 public:
-    ArrayList(int maxSize);
+    ArrayList(int maxSize = 10);
+
+    int Size() const;
+
+    bool Contains(const T& value) const;
 
     void Add(const T& item);
 
@@ -30,6 +34,21 @@ public:
 template<class T>
 ArrayList<T>::ArrayList(int maxSize) : size(0), maxSize(maxSize), array(nullptr)
 {
+}
+
+template<class T>
+int ArrayList<T>::Size() const
+{
+    return size;
+}
+
+template<class T>
+bool ArrayList<T>::Contains(const T& value) const
+{
+    for (int i = 0; i < array; i++)
+        if (array[i] == value)
+            return true;
+    return false;
 }
 
 template<class T>
