@@ -153,6 +153,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QuickSort.h" />
+    <ClInclude Include="RadixSort.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>

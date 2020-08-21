@@ -81,6 +81,9 @@
     <ClInclude Include="SelectionSort.h">
       <Filter>Header Files\Sort</Filter>
     </ClInclude>
+    <ClInclude Include="RadixSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
