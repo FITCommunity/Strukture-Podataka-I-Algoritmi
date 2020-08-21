@@ -85,11 +85,17 @@
       <Filter>Header Files\Sort</Filter>
     </ClInclude>
     <ClInclude Include="HeapSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="BucketSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BucketSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
