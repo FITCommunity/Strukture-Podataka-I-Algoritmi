@@ -15,6 +15,7 @@ public:
     BinaryTree() : root(nullptr) {}
     void Add(const T &value);
     BinaryTreeNode<T>* Get(const T &value) const;
+    BinaryTreeNode<T>* GetRoot() const;
     ~BinaryTree();
 };
 
@@ -81,6 +82,12 @@ template<typename T>
 BinaryTreeNode<T>* BinaryTree<T>::Get(const T& value) const
 {
     return Get(root, value);
+}
+
+template<typename T>
+BinaryTreeNode<T>* BinaryTree<T>::GetRoot() const
+{
+    return root;
 }
 
 template<typename T>

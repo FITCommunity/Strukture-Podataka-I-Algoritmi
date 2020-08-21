@@ -31,6 +31,9 @@
     <Filter Include="Header Files\HashTable">
       <UniqueIdentifier>{c2858f1b-ca2e-45e5-af92-499b4dd5e1f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\BinaryTree">
+      <UniqueIdentifier>{196bcea7-da3a-4f50-a89a-1f6e11fea653}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -105,11 +108,14 @@
     <ClInclude Include="ChainedHashTable.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
-    <ClInclude Include="BinaryTreeNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BinaryTree.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeNode.h">
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeTraversal.h">
+      <Filter>Header Files\BinaryTree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

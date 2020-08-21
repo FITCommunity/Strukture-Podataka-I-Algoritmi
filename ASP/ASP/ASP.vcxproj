@@ -144,6 +144,7 @@
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="BinaryTreeNode.h" />
+    <ClInclude Include="BinaryTreeTraversal.h" />
     <ClInclude Include="BucketSort.h" />
     <ClInclude Include="ChainedHashTable.h" />
     <ClInclude Include="HashNode.h" />
