@@ -25,148 +25,81 @@ public:
 };
 
 template<class T>
-HeapPriorityQueue<T>::HeapPriorityQueue(int maxSize) : size(0), maxSize(maxSize), array(nullptr)
-{}
-
-
-template<class T>
-int HeapPriorityQueue<T>::GetRightChildPosition(int i) const { return 2 * i + 2; }
-
-template<class T>
-int HeapPriorityQueue<T>::GetLeftChildPosition(int i) const { return 2 * i + 1; }
-
-template<class T>
-int HeapPriorityQueue<T>::GetParentPosition(int i) const { return (i - 1) / 2; }
-
-template<class T>
-bool HeapPriorityQueue<T>::HasRightChild(int i) const { return GetRightChildPosition(i) < size; }
-
-template<class T>
-bool HeapPriorityQueue<T>::HasLeftChild(int i) const { return GetLeftChildPosition(i) < size; }
-
-template<class T>
-bool HeapPriorityQueue<T>::IsRoot(int i) const { return i == 0; }
-
-template<class T>
-bool HeapPriorityQueue<T>::IsLeaf(int i) const { return !HasLeftChild(i); }
-
-template<class T>
-void HeapPriorityQueue<T>::BubbleDown(int i)
+LinkedList<T>::LinkedList() : size(0), head(nullptr)
 {
-    if (!IsLeaf(i))
-    {
-        int leftChildIndex = GetLeftChildPosition(i);
-
-        int maxIndeks = i;
-        if (array[leftChildIndex] > array[maxIndeks]) maxIndeks = leftChildIndex;
-
-
-        if (HasRightChild(i))
-        {
-            int rightChildIndex = GetRightChildPosition(i);
-
-            if (array[rightChildIndex] > array[maxIndeks]) maxIndeks = rightChildIndex;
-        }
-
-        if (maxIndeks != i)
-        {
-            std::swap(array[maxIndeks], array[i]);
-            BubbleDown(maxIndeks);
-        }
-    }
-}
-
-template<class T>
-void HeapPriorityQueue<T>::BubbleUp(int i)
-{
-    if (!IsRoot(i))
-    {
-        int parentIndex = GetParentPosition(i);
-
-        if (array[parentIndex] < array[i])
-        {
-            std::swap(array[parentIndex], array[i]);
-            BubbleUp(parentIndex);
-        }
-    }
 }
 
 
 template<class T>
-void HeapPriorityQueue<T>::ExpandQueue()
+void LinkedList<T>::Add(const T& item)
 {
-    try
-    {
-        T* temp = array;
-        array = new T[2 * maxSize];
-
-        for (int i = 0; i < maxSize; i++)
-            array[i] = temp[i];
-
-        maxSize *= 2;
-
-        delete[] temp;
-    }
-    catch (std::bad_alloc e)
-    {
-        std::cout << e.what() << "\n";
-    }
-}
-
-
-
-template<class T>
-void HeapPriorityQueue<T>::Add(const T& item)
-{
-    if (IsFull())
-    {
-        ExpandQueue();
-    }
-
-    array[size] = item;
-    BubbleUp(size);
     size++;
+
+    Node<T>* newNode = new Node<T>(item, nullptr);
+
+    if (!head)
+    {
+        head = newNode;
+        return;
+    }
+
+    Node<T>* beginning = head;
+    while (beginning->GetNext()) beginning = beginning->GetNext();
+    beginning->GetNext() = newNode;
 }
 
 template<class T>
-T HeapPriorityQueue<T>::Remove()
+T LinkedList<T>::Remove()
 {
     if (IsEmpty()) return;
 
-
-    T removedItem = array[0];
-    array[0] = array[size - 1];
-
-    BubbleDown();
     size--;
 
+    Node<T>* beginning = head;
+    Node<T>* beforeBeginning = nullptr;
+
+    while (beginning)
+    {
+        beforeBeginning = beginning;
+        beginning = beginning->GetNext();
+    }
+
+    if (beforeBeginning) beforeBeginning->GetNext() = nullptr;
+    else head = nullptr;
+
+    T removedItem = beginning->GetData();
+    delete beginning;
     return removedItem;
 }
 
-
 template<class T>
-T HeapPriorityQueue<T>::Peek() const
+T LinkedList<T>::Get(int i) const
 {
-    if (IsEmpty()) return;
+    if (i < 0 || i > size)
+    {
+        throw std::range_error("Index out of range");
+    }
 
-    return array[0];
+    Node<T>* beginning = head;
+    for (int j = 0; j < i; j++)
+        beginning = beginning->GetNext();
+    return beginning->GetData();
 }
 
 template<class T>
-bool HeapPriorityQueue<T>::IsEmpty() const
+bool LinkedList<T>::IsEmpty() const
 {
     return size == 0;
 }
 
 template<class T>
-bool HeapPriorityQueue<T>::IsFull() const
+LinkedList<T>::~LinkedList()
 {
-    return size == maxSize;
-}
-
-template<class T>
-HeapPriorityQueue<T>::~HeapPriorityQueue()
-{
-    delete[] array;
+    while (head)
+    {
+        Node<T>* temp = head;
+        head = head->GetNext();
+        delete temp;
+    }
     size = 0;
 }
