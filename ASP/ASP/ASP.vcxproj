@@ -142,6 +142,8 @@
     <ClInclude Include="ArrayPriorityQueue.h" />
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="BinaryTreeNode.h" />
     <ClInclude Include="BucketSort.h" />
     <ClInclude Include="ChainedHashTable.h" />
     <ClInclude Include="HashNode.h" />

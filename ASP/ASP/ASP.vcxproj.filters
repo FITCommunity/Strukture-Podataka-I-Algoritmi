@@ -105,6 +105,12 @@
     <ClInclude Include="ChainedHashTable.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
+    <ClInclude Include="BinaryTreeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
