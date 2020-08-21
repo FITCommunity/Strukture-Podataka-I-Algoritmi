@@ -143,6 +143,9 @@
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="BucketSort.h" />
+    <ClInclude Include="ChainedHashTable.h" />
+    <ClInclude Include="HashNode.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="HeapPriorityQueue.h" />
     <ClInclude Include="HeapSort.h" />
     <ClInclude Include="InsertionSort.h" />
@@ -153,6 +156,7 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="OpenAddressHashTable.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="RadixSort.h" />
@@ -160,7 +164,6 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BucketSort.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

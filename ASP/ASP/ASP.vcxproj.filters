@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Sort">
       <UniqueIdentifier>{7d95b270-4f3e-4635-8c74-e358db9ef41e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\HashTable">
+      <UniqueIdentifier>{c2858f1b-ca2e-45e5-af92-499b4dd5e1f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -88,14 +91,23 @@
       <Filter>Header Files\Sort</Filter>
     </ClInclude>
     <ClInclude Include="BucketSort.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="HashNode.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenAddressHashTable.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainedHashTable.h">
+      <Filter>Header Files\HashTable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BucketSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
