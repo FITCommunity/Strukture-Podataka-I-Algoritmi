@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\List">
+      <UniqueIdentifier>{e7c6daed-fe05-4cfb-a00e-ba33e5a4c201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Queue">
+      <UniqueIdentifier>{c9b71ab1-4154-4a25-9c57-cb39a0dad995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stack">
+      <UniqueIdentifier>{c97afbcf-933e-4226-b71e-f5bcd804da68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PriorityQueue">
+      <UniqueIdentifier>{3789e122-36b3-4cb8-bbe4-8d57629246f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sort">
+      <UniqueIdentifier>{7d95b270-4f3e-4635-8c74-e358db9ef41e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HashTable">
+      <UniqueIdentifier>{c2858f1b-ca2e-45e5-af92-499b4dd5e1f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BinaryTree">
+      <UniqueIdentifier>{196bcea7-da3a-4f50-a89a-1f6e11fea653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graph">
+      <UniqueIdentifier>{4462656b-bb60-4bdf-918c-2533bd16fea3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayQueue.h">
+      <Filter>Header Files\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedQueue.h">
+      <Filter>Header Files\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedPriorityQueue.h">
+      <Filter>Header Files\PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Header Files\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Header Files\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapPriorityQueue.h">
+      <Filter>Header Files\PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayPriorityQueue.h">
+      <Filter>Header Files\PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedStack.h">
+      <Filter>Header Files\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayStack.h">
+      <Filter>Header Files\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="RadixSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="BucketSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="HashNode.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenAddressHashTable.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="ChainedHashTable.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTree.h">
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeNode.h">
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeTraversal.h">
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjacencyMatrix.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstSearchIterative.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstSearchRecursive.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
