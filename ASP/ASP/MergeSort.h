@@ -1,12 +1,12 @@
 #pragma once
 #include <functional>
 
-template<typename T>
+template<typename T, typename F = std::function<bool(const T&, const T&)>>
 void MergeSort
 (
 	T* array,
 	int size,
-	std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
+	const F &compare = [](const T& x, const T& y) {return x < y; }
 )
 {
 	MSort(array, 0, size - 1, compare);
@@ -14,16 +14,16 @@ void MergeSort
 
 namespace
 {
-	template<typename T>
+	template<typename T, typename F = std::function<bool(const T&, const T&)>>
 	void MSort
 	(
 		T* array,
 		int beginning,
 		int ending,
-		std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
+		const F& compare = [](const T& x, const T& y) {return x < y; }
 	)
 	{
-		if (beginning < kraj)
+		if (beginning < ending)
 		{
 			int middle = (beginning + ending) / 2;
 			MSort(array, beginning, middle, compare);
@@ -33,14 +33,14 @@ namespace
 		}
 	}
 
-	template<typename T>
+	template<typename T, typename F = std::function<bool(const T&, const T&)>>
 	void Merge
 	(
 		T* array,
 		int beginning,
 		int middle,
 		int ending,
-		std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
+		const F& compare = [](const T& x, const T& y) {return x < y; }
 	)
 	{
 		int iTemp = 0;
@@ -53,13 +53,13 @@ namespace
 		//Spoji 2 arraya
 		while (i1 <= middle && i2 <= ending)
 			compare(array[i1], array[i2]) ? tempArray[iTemp++] = array[i1++]
-			: tempArray[iTemp++] = array[i2++];
+										  : tempArray[iTemp++] = array[i2++];
 
 
 		//Kopiraj ostatak
-		while (ibeginning1 <= middle)
+		while (i1 <= middle)
 			tempArray[iTemp++] = array[i1++];
-		while (ibeginning2 <= ending)
+		while (i2 <= ending)
 			tempArray[iTemp++] = array[i2++];
 
 

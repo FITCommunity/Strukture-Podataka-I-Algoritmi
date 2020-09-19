@@ -1,12 +1,12 @@
 #pragma once
 #include <functional>
 
-template<typename T>
+template<typename T, typename F = std::function<bool(const T&, const T&)>>
 void InsertionSort
 (
 	T* array,
 	int size,
-	std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x > y; }
+	const F &compare = [](const T& x, const T& y) {return x > y; }
 )
 {
 	for (int i = 1; i < size; i++)

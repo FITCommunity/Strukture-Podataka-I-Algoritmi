@@ -1,12 +1,12 @@
 #pragma once
 #include <functional>
 
-template<typename T>
+template<typename T, typename F = std::function<bool(const T&, const T&)>>
 void SelectionSort
 (
 	T* array,
 	int size,
-	std::function<bool(const T&, const T&)> compare = [](const Tip& x, const Tip& y) {return x < y; }
+	const F &compare = [](const T& x, const T& y) {return x < y; }
 )
 {
 	for (int i = 0; i < size - 1; i++)

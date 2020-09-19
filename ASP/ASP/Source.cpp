@@ -5,8 +5,10 @@
 
 #include "LinkedStack.h"
 
+#include "InsertionSort.h"
+
 int main()
 {
-
+    
     return 0;
 }

@@ -25,6 +25,9 @@
     <Filter Include="Source Files\PriorityQueue">
       <UniqueIdentifier>{336f721f-bfc8-4657-8c57-7798f30011b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sort">
+      <UniqueIdentifier>{beea0ec7-fc52-4c9b-9daa-5c58bd1bb54b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -56,6 +59,18 @@
     </ClCompile>
     <ClCompile Include="LinkedPriorityQueue_Test.cpp">
       <Filter>Source Files\PriorityQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertionSort_Test.cpp">
+      <Filter>Source Files\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionSort_Test.cpp">
+      <Filter>Source Files\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="MergeSort_Test.cpp">
+      <Filter>Source Files\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort_Test.cpp">
+      <Filter>Source Files\Sort</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
