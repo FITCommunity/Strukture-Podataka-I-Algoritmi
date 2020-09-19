@@ -157,8 +157,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArrayList_Test.cpp" />
+    <ClCompile Include="ArrayPriorityQueue_Test.cpp" />
+    <ClCompile Include="ArrayQueue_Test.cpp" />
     <ClCompile Include="ArrayStack_Test.cpp" />
+    <ClCompile Include="HeapPriorityQueue_Test.cpp" />
     <ClCompile Include="LinkedList_Test.cpp" />
+    <ClCompile Include="LinkedPriorityQueue_Test.cpp" />
+    <ClCompile Include="LinkedQueue_Test.cpp" />
     <ClCompile Include="LinkedStack_Test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

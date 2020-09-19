@@ -15,7 +15,7 @@ class ArrayQueue : public Queue<T>
 
     void ExpandQueue();
 public:
-    ArrayQueue(int maxSize);
+    ArrayQueue(int maxSize = 20);
 
     void Add(const T& item);
     
@@ -27,13 +27,17 @@ public:
     
     bool IsFull() const;
 
+    int Size() const;
+
     ~ArrayQueue();
 };
 
 
 template<class T>
-ArrayQueue<T>::ArrayQueue(int maxSize) : size(0), maxSize(maxSize), first(0), last(0), array(nullptr)
-{}
+ArrayQueue<T>::ArrayQueue(int maxSize) : size(0), maxSize(maxSize), first(0), last(0)
+{
+    array = new T[maxSize];
+}
 
 template<class T>
 void ArrayQueue<T>::ExpandQueue()
@@ -78,7 +82,7 @@ void ArrayQueue<T>::Add(const T& item)
 template<class T>
 T ArrayQueue<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Queue is empty");
 
     T removedItem = array[first++];
     if (first == maxSize) first = 0;
@@ -91,7 +95,7 @@ T ArrayQueue<T>::Remove()
 template<class T>
 T ArrayQueue<T>::Peek() const
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Queue is empty");
 
     return array[first];
 }
@@ -106,6 +110,12 @@ template<class T>
 bool ArrayQueue<T>::IsFull() const
 {
     return size == maxSize;
+}
+
+template<class T>
+int ArrayQueue<T>::Size() const
+{
+    return size;
 }
 
 template<class T>

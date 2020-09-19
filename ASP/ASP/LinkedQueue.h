@@ -44,7 +44,7 @@ void LinkedQueue<T>::Add(const T& item)
 template<class T>
 T LinkedQueue<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Queue is empty");
 
     Node<T>* tempNode = first;
     first = first->GetNext();
@@ -60,7 +60,7 @@ T LinkedQueue<T>::Remove()
 template<class T>
 T LinkedQueue<T>::Peek() const
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Queue is empty");
 
     return first->GetData();
 }

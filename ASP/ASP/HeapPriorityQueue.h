@@ -27,7 +27,7 @@ class HeapPriorityQueue : public Queue<T>
 
     void ExpandQueue();
 public:
-    HeapPriorityQueue(int maxSize);
+    HeapPriorityQueue(int maxSize = 20);
 
     void Add(const T& item);
 
@@ -39,12 +39,16 @@ public:
 
     bool IsFull() const;
 
+    int Size() const;
+
     ~HeapPriorityQueue();
 };
 
 template<class T>
-HeapPriorityQueue<T>::HeapPriorityQueue(int maxSize) : size(0), maxSize(maxSize), array(nullptr)
-{}
+HeapPriorityQueue<T>::HeapPriorityQueue(int maxSize) : size(0), maxSize(maxSize)
+{
+    array = new T[maxSize];
+}
 
 
 template<class T>
@@ -149,7 +153,7 @@ void HeapPriorityQueue<T>::Add(const T& item)
 template<class T>
 T HeapPriorityQueue<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The queue is empty");
 
 
     T removedItem = array[0];
@@ -165,7 +169,7 @@ T HeapPriorityQueue<T>::Remove()
 template<class T>
 T HeapPriorityQueue<T>::Peek() const
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The queue is empty");
 
     return array[0];
 }
@@ -180,6 +184,12 @@ template<class T>
 bool HeapPriorityQueue<T>::IsFull() const
 {
     return size == maxSize;
+}
+
+template<class T>
+int HeapPriorityQueue<T>::Size() const
+{
+    return size;
 }
 
 template<class T>

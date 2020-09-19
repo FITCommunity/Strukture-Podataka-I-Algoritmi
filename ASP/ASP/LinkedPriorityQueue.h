@@ -1,4 +1,5 @@
 #pragma once
+#include <stdexcept>
 #include "Queue.h"
 #include "Node.h"
 template<class T>
@@ -42,13 +43,13 @@ void LinkedPriorityQueue<T>::Add(const T& item)
     Node<T>* newNode = new Node<T>(item, beginning);
 
     beforeBeginning ? beforeBeginning->GetNext() = newNode
-        : head = newNode;
+                    : head = newNode;
 }
 
 template<class T>
 T LinkedPriorityQueue<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The queue is empty");
 
     Node<T>* tempNode = head;
     head = head->GetNext();
@@ -62,7 +63,7 @@ T LinkedPriorityQueue<T>::Remove()
 template<class T>
 T LinkedPriorityQueue<T>::Peek() const
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The queue is empty");
 
     return head->GetData();
 }
