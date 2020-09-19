@@ -18,15 +18,15 @@ namespace ASP_Test
 			int niz[]{ 3, 6, 1, 5, 4, 2 };
 			QuickSort(niz, 6);
 
-			Assert::IsTrue(std::is_sorted(niz, niz + 6));
+			Assert::IsTrue(std::is_sorted(niz, niz + 5));
 		}
 
 		TEST_METHOD(SortArrayPassComparisonFunctionThatReturnsTrueForGreaterThen_GetSortedArrayInDesc_Test)
 		{
 			int niz[]{ 3, 6, 1, 5, 4, 2 };
-			QuickSort(niz, 6, [](int x, int y) {return x < y; });
+			QuickSort(niz, 6, [](int x, int y) {return x > y; });
 
-			Assert::IsTrue(std::is_sorted(niz, niz + 6, std::greater<>()));
+			Assert::IsTrue(std::is_sorted(niz, niz + 5, std::greater<>()));
 		}
 
 	};
