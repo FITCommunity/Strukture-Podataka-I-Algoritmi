@@ -3,115 +3,89 @@
 #include <stdexcept>
 
 #include "HashTable.h"
-#include "HashNode.h"
 
-template<typename TKey, typename TValue>
-class OpenAddressHashTable : public HashTable<TKey, TValue>
+template<typename T>
+class OpenAddressHashTable : public HashTable<T>
 {
     int elementsCount;
-    HashNode<TKey, TValue>** array;
+    T* array;
+    bool* isTaken;
 public:
     OpenAddressHashTable(int max = 10);
-    void Add(const TKey& key, const TValue& value);
-    bool Remove(const TKey& key);
+    void Add(const T &item);
+    bool Remove(const T& item);
     bool IsEmpty() const;
     bool IsFull() const;
-    HashNode<TKey, TValue>* Get(const TKey& key) const;
     ~OpenAddressHashTable();
 };
 
-template<typename TKey, typename TValue>
-OpenAddressHashTable<TKey, TValue>::OpenAddressHashTable(int max) : HashTable<TKey, TValue>::maxSize(max)
+template<typename T>
+OpenAddressHashTable<T>::OpenAddressHashTable(int max) : HashTable<T>(max)
 {
-    array = new HashNode<TKey, TValue> *[max];
+    array = new T[max];
+    isTaken = new bool[max];
     for (int i = 0; i < max; i++)
-        array[i] = nullptr;
+        isTaken[i] = false;
 }
 
-template<typename TKey, typename TValue>
-void OpenAddressHashTable<TKey, TValue>::Add(const TKey& key, const TValue& value)
+template<typename T>
+void OpenAddressHashTable<T>::Add(const T& item)
 {
     if (IsFull()) throw std::exception("Greska, the hash table is full!");
 
-    int i = HashTable<TKey, TValue>::GetHash(key);
+    int i = GetHash(item);
     int start = i;
-    while (array[i])
+    while (isTaken[i])
     {
         i++;
-        if (i == HashTable<TKey, TValue>::maxSize) i = 0;
-
-        if (i == start) return;
+        if (i == GetMaxSize()) i = 0;
     }
 
-    array[i] = new HashNode<TKey, TValue>(key, value);
+    array[i] = item;
+    isTaken[i] = true;
     elementsCount++;
 }
 
-template<typename TKey, typename TValue>
-bool OpenAddressHashTable<TKey, TValue>::Remove(const TKey& key)
+template<typename T>
+bool OpenAddressHashTable<T>::Remove(const T& item)
 {
     if (!IsEmpty())
     {
-        int i = HashTable<TKey, TValue>::GetHash(key);
+        int i = GetHash(item);
         int start = 0;
-        while (1)
+        while (start != elementsCount)
         {
-            if (array[i] && array[i]->GetKey() == key)
+            if (isTaken[i] && array[i] == item)
             {
+                isTaken[i] = false;
                 elementsCount--;
-                delete array[i];
-                array[i] = nullptr;
                 return true;
             }
 
             i++;
-            if (i == HashTable<TKey, TValue>::maxSize) i = 0;
-            if (i == start) break;
+            start++;
+            if (i == GetMaxSize()) i = 0;
         }
     }
     
     return false;
 }
 
-template<typename TKey, typename TValue>
-bool OpenAddressHashTable<TKey, TValue>::IsEmpty() const
+template<typename T>
+bool OpenAddressHashTable<T>::IsEmpty() const
 {
     return elementsCount == 0;
 }
 
-template<typename TKey, typename TValue>
-bool OpenAddressHashTable<TKey, TValue>::IsFull() const
+template<typename T>
+bool OpenAddressHashTable<T>::IsFull() const
 {
-    return elementsCount == HashTable<TKey, TValue>::maxSize;
+    return elementsCount == GetMaxSize();
 }
 
-template<typename TKey, typename TValue>
-HashNode<TKey, TValue>* OpenAddressHashTable<TKey, TValue>::Get(const TKey& key) const
+
+template<typename T>
+OpenAddressHashTable<T>::~OpenAddressHashTable()
 {
-    if (!IsEmpty())
-    {
-        int i = HashTable<TKey, TValue>::GetHash(key);
-        int start = i;
-        while (1)
-        {
-            if (array[i] && array[i]->GetKey() == key)
-                return array[i];
-
-
-            i++;
-            if (i == HashTable<TKey, TValue>::maxSize) i = 0;
-
-            if (i == start) return nullptr;
-        }
-    }
-
-    return nullptr;
-}
-
-template<typename TKey, typename TValue>
-OpenAddressHashTable<TKey, TValue>::~OpenAddressHashTable()
-{
-    for (int i = 0; i < HashTable<TKey, TValue>::maxSize; i++)
-        delete array[i];
     delete[] array;
 }

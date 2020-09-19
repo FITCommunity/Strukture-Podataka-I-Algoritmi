@@ -13,7 +13,7 @@ class ArrayStack : public Stack<T>
 
     void ExpandStack();
 public:
-    ArrayStack(int maxSize);
+    ArrayStack(int maxSize = 20);
 
     void Push(const T& item);
 
@@ -25,12 +25,16 @@ public:
 
     bool IsFull() const;
 
+    int Size() const;
+
     ~ArrayStack();
 };
 
 template<class T>
-ArrayStack<T>::ArrayStack(int maxSize) : size(0), maxSize(maxSize), array(nullptr)
-{}
+ArrayStack<T>::ArrayStack(int maxSize) : size(0), maxSize(maxSize)
+{
+    array = new T[maxSize];
+}
 
 template<class T>
 void ArrayStack<T>::ExpandStack()
@@ -65,7 +69,7 @@ void ArrayStack<T>::Push(const T& item)
 template<class T>
 T ArrayStack<T>::Pop()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Stack is empty");
 
     T removedItem = array[size - 1];
     size--;
@@ -75,7 +79,7 @@ T ArrayStack<T>::Pop()
 template<class T>
 T ArrayStack<T>::Top() const
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Stack is empty");
 
     return array[size - 1];
 }
@@ -90,6 +94,12 @@ template<class T>
 bool ArrayStack<T>::IsFull() const
 {
     return size == maxSize;
+}
+
+template<class T>
+int ArrayStack<T>::Size() const
+{
+    return size;
 }
 
 template<class T>

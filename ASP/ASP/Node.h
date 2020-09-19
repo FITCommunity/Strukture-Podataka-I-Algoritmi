@@ -11,7 +11,7 @@ public:
     T GetData() const { return data; }
     void SetData(const T& data) { this->data = data; }
 
-    Node<T> *GetNext() const { return next; }
+    Node<T> *&GetNext() { return next; }
     void SetNext(Node<T>* next) { this->next = next; }
 };
 

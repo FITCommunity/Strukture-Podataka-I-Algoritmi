@@ -17,6 +17,8 @@ public:
 
     T Remove();
 
+    bool Remove(const T& item);
+
     T Get(int i) const;
 
     bool IsEmpty() const;
@@ -51,14 +53,14 @@ void LinkedList<T>::Add(const T& item)
 template<class T>
 T LinkedList<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The list is empty");
 
     size--;
 
     Node<T>* beginning = head;
     Node<T>* beforeBeginning = nullptr;
 
-    while (beginning)
+    while (beginning->GetNext())
     {
         beforeBeginning = beginning;
         beginning = beginning->GetNext();
@@ -70,6 +72,29 @@ T LinkedList<T>::Remove()
     T removedItem = beginning->GetData();
     delete beginning;
     return removedItem;
+}
+
+template<class T>
+bool LinkedList<T>::Remove(const T &item)
+{
+    Node<T>* beginning = head;
+    Node<T>* beforeBeginning = nullptr;
+
+    while (beginning)
+    {
+        if (beginning->GetData() == item) break;
+
+        beforeBeginning = beginning;
+        beginning = beginning->GetNext();
+    }
+
+    if (!beginning) return false;
+
+    if (!beforeBeginning) head = beginning->GetNext();
+    else beforeBeginning->GetNext() = beginning->GetNext();
+
+    delete beginning;
+    return true;
 }
 
 template<class T>

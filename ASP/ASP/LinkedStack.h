@@ -8,7 +8,6 @@
 template<class T>
 class LinkedStack : public Stack<T>
 {
-    int size;
     Node<T>* head;
 public:
     LinkedStack();
@@ -26,7 +25,7 @@ public:
 
 
 template<class T>
-LinkedStack<T>::LinkedStack() : size(0), head(nullptr)
+LinkedStack<T>::LinkedStack() : head(nullptr)
 {}
 
 
@@ -40,7 +39,7 @@ void LinkedStack<T>::Push(const T& item)
 template<class T>
 T LinkedStack<T>::Pop()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Stack is empty");
 
     Node<T>* tempNode = head;
     head = head->GetNext();
@@ -53,7 +52,7 @@ T LinkedStack<T>::Pop()
 template<class T>
 T LinkedStack<T>::Top() const
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("Stack is empty");
 
     return head->GetData();
 }
@@ -61,7 +60,7 @@ T LinkedStack<T>::Top() const
 template<class T>
 bool LinkedStack<T>::IsEmpty() const
 {
-    return size == 0;
+    return head == nullptr;
 }
 
 template<class T>
@@ -73,5 +72,4 @@ LinkedStack<T>::~LinkedStack()
         head = head->GetNext();
         delete temp;
     }
-    size = 0;
 }

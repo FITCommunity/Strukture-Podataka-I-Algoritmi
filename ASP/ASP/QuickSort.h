@@ -1,12 +1,12 @@
 #pragma once
 #include <functional>
 
-template<typename T>
+template<typename T, typename F = std::function<bool(const T&, const T&)>>
 void QuickSort
 (
 	T* array,
 	int size,
-	std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
+	const F &compare = [](const T& x, const T& y) {return x < y; }
 )
 {
 	QSort(array, 0, size, compare);
@@ -14,13 +14,13 @@ void QuickSort
 
 namespace
 {
-	template<typename T>
+	template<typename T, typename F = std::function<bool(const T&, const T&)>>
 	void QSort
 	(
 		T* array,
 		int beginning,
 		int ending,
-		std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
+		const F& compare = [](const T& x, const T& y) {return x < y; }
 	)
 	{
 		if (beginning < ending)
@@ -32,13 +32,13 @@ namespace
 		}
 	}
 
-	template<typename T>
+	template<typename T, typename F = std::function<bool(const T&, const T&)>>
 	int Partition
 	(
 		T* array,
 		int beginning,
 		int ending,
-		std::function<bool(const T&, const T&)> compare = [](const T& x, const T& y) {return x < y; }
+		const F& compare = [](const T& x, const T& y) {return x < y; }
 	)
 	{
 		T pivot = array[ending];

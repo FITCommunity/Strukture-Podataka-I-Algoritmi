@@ -1,49 +1,39 @@
 #pragma once
 
 #include "HashTable.h"
-#include "ArrayList.h"
-#include "HashNode.h"
+#include "LinkedList.h"
 
-template<typename TKey, typename TValue>
-class ChainedHashTable : public HashTable<TKey, TValue>
+template<typename T>
+class ChainedHashTable : public HashTable<T>
 {
-    ArrayList<HashNode<TKey, TValue>>* list;
+    LinkedList<T>* list;
 public:
     ChainedHashTable(int max = 10);
-    void Add(const TKey& key, const TValue& value);
-    bool Remove(const TKey& key);
-    HashNode<TKey, TValue>* Get(const TKey& key, const TValue &value) const;
+    void Add(const T& item);
+    bool Remove(const T& item);
     ~ChainedHashTable();
 };
 
-template<typename TKey, typename TValue>
-ChainedHashTable<TKey, TValue>::ChainedHashTable(int max) : 
-    HashTable<TKey, TValue>::maxSize(max),
-    list(new ArrayList<HashNode<TKey, TValue>>[max])
+template<typename T>
+ChainedHashTable<T>::ChainedHashTable(int max) : 
+    HashTable<T>(max),
+    list(new LinkedList<T>[max])
 {}
 
-template<typename TKey, typename TValue>
-void ChainedHashTable<TKey, TValue>::Add(const TKey& key, const TValue& value)
+template<typename T>
+void ChainedHashTable<T>::Add(const T& item)
 {
-    list[HashTable<TKey, TValue>::GetHash(key)].Add({ key, value });
+    list[HashTable<T>::GetHash(item)].Add(item);
 }
 
-template<typename TKey, typename TValue>
-bool ChainedHashTable<TKey, TValue>::Remove(const TKey& key)
+template<typename T>
+bool ChainedHashTable<T>::Remove(const T& item)
 {
-    return list[HashTable<TKey, TValue>::GetHash(key)].Remove();
+    return list[HashTable<T>::GetHash(item)].Remove(item);
 }
 
-template<typename TKey, typename TValue>
-HashNode<TKey, TValue>* ChainedHashTable<TKey, TValue>::Get(const TKey& key, const TValue& value) const
-{
-    ArrayList<HashNode<TKey, TValue>> temp = list[HashTable<TKey, TValue>::GetHash(key)];
-    return temp.Get({ key, value });
-
-}
-
-template<typename TKey, typename TValue>
-ChainedHashTable<TKey, TValue>::~ChainedHashTable()
+template<typename T>
+ChainedHashTable<T>::~ChainedHashTable()
 {
     delete[] list;
 }
