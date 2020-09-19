@@ -160,6 +160,8 @@
     <ClCompile Include="ArrayPriorityQueue_Test.cpp" />
     <ClCompile Include="ArrayQueue_Test.cpp" />
     <ClCompile Include="ArrayStack_Test.cpp" />
+    <ClCompile Include="BucketSort_Test.cpp" />
+    <ClCompile Include="HeapSort_Test.cpp" />
     <ClCompile Include="HeapPriorityQueue_Test.cpp" />
     <ClCompile Include="InsertionSort_Test.cpp" />
     <ClCompile Include="LinkedList_Test.cpp" />
@@ -174,6 +176,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="QuickSort_Test.cpp" />
+    <ClCompile Include="RadixSort_Test.cpp" />
     <ClCompile Include="SelectionSort_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
