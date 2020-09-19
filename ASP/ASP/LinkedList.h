@@ -51,14 +51,14 @@ void LinkedList<T>::Add(const T& item)
 template<class T>
 T LinkedList<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The list is empty");
 
     size--;
 
     Node<T>* beginning = head;
     Node<T>* beforeBeginning = nullptr;
 
-    while (beginning)
+    while (beginning->GetNext())
     {
         beforeBeginning = beginning;
         beginning = beginning->GetNext();

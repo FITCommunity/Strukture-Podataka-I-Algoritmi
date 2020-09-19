@@ -32,8 +32,9 @@ public:
 };
 
 template<class T>
-ArrayList<T>::ArrayList(int maxSize) : size(0), maxSize(maxSize), array(nullptr)
+ArrayList<T>::ArrayList(int maxSize) : size(0), maxSize(maxSize)
 {
+    array = new T[maxSize];
 }
 
 template<class T>
@@ -84,7 +85,7 @@ void ArrayList<T>::Add(const T& item)
 template<class T>
 T ArrayList<T>::Remove()
 {
-    if (IsEmpty()) return;
+    if (IsEmpty()) throw std::exception("The list is empty");
 
     T removedItem = array[size - 1];
     size--;
