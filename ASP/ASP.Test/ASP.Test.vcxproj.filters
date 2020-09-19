@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Sort">
       <UniqueIdentifier>{beea0ec7-fc52-4c9b-9daa-5c58bd1bb54b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HashTable">
+      <UniqueIdentifier>{5d876442-e7de-40df-8cbc-ddd0094626c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -80,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="BucketSort_Test.cpp">
       <Filter>Source Files\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="ChainedHashTable_Test.cpp">
+      <Filter>Source Files\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenAddressHashTable_Test.cpp">
+      <Filter>Source Files\HashTable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

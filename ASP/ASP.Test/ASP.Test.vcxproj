@@ -161,6 +161,7 @@
     <ClCompile Include="ArrayQueue_Test.cpp" />
     <ClCompile Include="ArrayStack_Test.cpp" />
     <ClCompile Include="BucketSort_Test.cpp" />
+    <ClCompile Include="ChainedHashTable_Test.cpp" />
     <ClCompile Include="HeapSort_Test.cpp" />
     <ClCompile Include="HeapPriorityQueue_Test.cpp" />
     <ClCompile Include="InsertionSort_Test.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="LinkedQueue_Test.cpp" />
     <ClCompile Include="LinkedStack_Test.cpp" />
     <ClCompile Include="MergeSort_Test.cpp" />
+    <ClCompile Include="OpenAddressHashTable_Test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

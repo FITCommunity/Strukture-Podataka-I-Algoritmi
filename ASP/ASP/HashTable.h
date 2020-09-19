@@ -1,15 +1,19 @@
 #pragma once
 
-template<typename TKey, typename TValue>
+template<typename T>
 class HashTable
 {
     int maxSize;
-    int GetHash(const TKey& key)
+protected:
+    int GetHash(const T& item) const
     {
-        return key % maxSize;
+        return item % maxSize;
     }
+
+    int GetMaxSize() const { return maxSize; }
 public:
-    virtual void Add(const TKey& key, const TValue& value) = 0;
-    virtual bool Remove(const TKey& key) = 0;
+    HashTable(int maxSize = 20) : maxSize(maxSize) {}
+    virtual void Add(const T&) = 0;
+    virtual bool Remove(const T&) = 0;
 };
 

@@ -99,9 +99,6 @@
     <ClInclude Include="BucketSort.h">
       <Filter>Header Files\Sort</Filter>
     </ClInclude>
-    <ClInclude Include="HashNode.h">
-      <Filter>Header Files\HashTable</Filter>
-    </ClInclude>
     <ClInclude Include="HashTable.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
